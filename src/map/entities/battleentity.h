@@ -609,8 +609,8 @@ public:
     uint16 GetMainWeaponRank();             // returns total main hand DMG Rank
     uint16 GetSubWeaponRank();              // returns total sub weapon DMG Rank
     uint16 GetRangedWeaponRank();           // returns total ranged weapon DMG Rank
-    uint8 GetMainWeaponHitCount();          // returns number of hits between 1 and maxHits for the main hand (for OAX)
-    uint8 GetSubWeaponHitCount();           // returns number of hits between 1 and maxHits for the off hand (for OAX)
+    uint8  GetMainWeaponHitCount();         // returns number of hits between 1 and maxHits for the main hand (for OAX)
+    uint8  GetSubWeaponHitCount();          // returns number of hits between 1 and maxHits for the off hand (for OAX)
 
     uint16 GetSkill(uint16 SkillID); // текущая величина умения (не максимальная, а ограниченная уровнем)
 
