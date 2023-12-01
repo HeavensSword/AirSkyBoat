@@ -704,6 +704,8 @@ public:
     uint16 getRangedDmg();                                                                                                                  // Get ranged weapon DMG rating
     uint16 getRangedDmgRank();                                                                                                              // Get ranged weapond DMG rating used for calculating rank
     uint16 getAmmoDmg();                                                                                                                    // Get ammo DMG rating
+    uint8  getWeaponHitCount();                                                                                                             // Gets a number of attacks between 1 and maxAttacks for the MainHand weapon (for OAX)
+    uint8  getOffhandHitCount();                                                                                                            // Gets a number of attacks between 1 and maxAttacks for the OffHand weapon (for OAX)
 
     void removeAmmo();
 

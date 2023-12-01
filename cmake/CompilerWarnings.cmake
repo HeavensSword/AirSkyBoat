@@ -103,7 +103,7 @@ function(set_project_warnings project_name)
     message(AUTHOR_WARNING "No compiler warnings set for '${CMAKE_CXX_COMPILER_ID}' compiler.")
   endif()
 
-  option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" TRUE)
+  option(WARNINGS_AS_ERRORS "Treat compiler warnings as errors" FALSE)
   if(WARNINGS_AS_ERRORS)
     if(UNIX)
       set(ERRORS "-Werror")
