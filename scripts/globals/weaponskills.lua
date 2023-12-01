@@ -258,7 +258,7 @@ local function getMultiAttacks(attacker, target, wsParams)
     then
         local numMainHits = attacker:getWeaponHitCount()
         -- Subtract 1 since the initial hit would have been calculated already; we just want additionals
-        utils.clamp(numMainHits - 1, 0, numMainHits)
+        numMainHits = utils.clamp(numMainHits - 1, 0, numMainHits)
 
         local numOffHits = 0
         if
@@ -267,7 +267,7 @@ local function getMultiAttacks(attacker, target, wsParams)
             numOffHits = attacker:getOffhandHitCount()
 
             -- Subtract 1 since the initial hit would have been calculated already; we just want additionals
-            utils.clamp(numOffHits - 1, 0, numOffHits)
+            numOffHits = utils.clamp(numOffHits - 1, 0, numOffHits)
         end
 
         totalOAXHits = numMainHits + numOffHits
@@ -1097,9 +1097,8 @@ xi.weaponskills.takeWeaponskillDamage = function(defender, attacker, wsParams, p
         wsResults.extraHitsLanded = 0
     end
 
-    print("tpHitsLanded = " .. tostring(wsResults.tpHitsLanded) .. ", extraHits = " .. tostring(wsResults.extraHitsLanded))
-
-    finaldmg = defender:takeWeaponskillDamage(attacker, finaldmg, attack.type, attack.damageType, attack.slot, primaryMsg, wsResults.tpHitsLanded * attackerTPMult, (wsResults.extraHitsLanded * 10) + wsResults.bonusTP, targetTPMult, attack.damageType == xi.attackType.MAGICAL)
+    finaldmg = defender:takeWeaponskillDamage(attacker, finaldmg, attack.type, attack.damageType, attack.slot, primaryMsg, wsResults.tpHitsLanded * attackerTPMult, (wsResults.extraHitsLanded * 10) + wsResults.bonusTP,
+                                              targetTPMult, attack.damageType == xi.attackType.MAGICAL, isJump)
     if wsResults.tpHitsLanded + wsResults.extraHitsLanded > 0 then
         if finaldmg >= 0 then
             action:param(defender:getID(), math.abs(finaldmg))
